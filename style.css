@@ -550,7 +550,7 @@ img:hover {
 
 @media screen and (max-width: 400px) {
   .image-gallery a i {
-    font-size: 0.6em;
+    font-size: 0.4em;
   }
 }
 
