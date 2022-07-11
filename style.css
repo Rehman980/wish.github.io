@@ -1,0 +1,704 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ********************** INDEX ********************** */
+body {
+  background-color: #fffdfa;
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem 1rem;
+  /* background: rgba(0, 0, 0, 0.2); */
+  /* border-bottom: 1px solid #fff; */
+}
+
+.nav-item {
+  line-height: 2rem;
+  width: 8rem;
+  color: rgb(137, 7, 70);
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* border: 0.5px solid rgba(0, 0, 0, 0.2); */
+}
+
+.nav-item:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0.3rem;
+  color: #fff;
+  border-bottom: 3px solid rgb(199, 27, 110);
+  cursor: pointer;
+}
+
+.intro-part {
+  padding-top: 5rem;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./images/simmi/pexels-tara-winstead-7663164.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wish {
+  /* margin-top: 20px; */
+  vertical-align: auto;
+  text-align: center;
+  font-size: 4rem;
+  font-family: "Amatic SC", cursive;
+  color: darkred;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  color: darkblue;
+  font-family: "Alex Brush", cursive;
+  font-size: 10rem;
+}
+
+.paragraph {
+  margin-top: 5rem;
+  width: 50%;
+  font-size: 2em;
+  font-family: "Caveat", cursive;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+  margin-top: 2rem;
+  font-weight: bolder;
+}
+
+photo-part {
+  background-color: #fcedf1;
+}
+
+.slider {
+  height: 250px;
+  margin: auto;
+  position: relative;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 24);
+  animation: scroll 50s linear infinite;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 12));
+  }
+}
+
+.slide {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+img {
+  width: 100%;
+  transition: transform 1s;
+}
+
+img:hover {
+  transform: translateZ(20px);
+  cursor: pointer;
+}
+
+/* gradient shadows */
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+@media screen and (max-width: 1150px) {
+  .paragraph {
+    width: 65%;
+    font-size: 1.75em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .paragraph {
+    width: 75%;
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .paragraph {
+    width: 85%;
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .intro-part {
+    background-image: url("./images/simmi/pexels-karolina-grabowska-4197491.jpg");
+  }
+
+  .paragraph {
+    width: 100%;
+    font-size: 1.4rem;
+  }
+
+  .wish {
+    font-size: 3rem;
+  }
+
+  .name {
+    font-size: 8rem;
+  }
+}
+
+/* ********************** MEMORIES ********************** */
+
+.nav1 {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem 1rem;
+  z-index: 999;
+  /* background: rgba(0, 0, 0, 0.2); */
+  /* border-bottom: 1px solid #fff; */
+}
+
+.memory-container {
+  width: 100vw;
+  max-width: 120rem;
+  margin: auto;
+  /* padding-top: 5rem; */
+  /* padding: 0 1.5rem; */
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    "img-1 img-1 img-1 img-4 img-13"
+    "img-2 img-2 img-6 img-6 img-12"
+    "img-5 img-7 img-9 img-25 img-11"
+    "img-8 img-10 img-10 img-10 img-14"
+    "img-15 img-10 img-10 img-10 img-20"
+    "img-18 img-16 img-16 img-21 img-17"
+    "img-30 img-31 img-26 img-26 img-26"
+    "img-24 img-35 img-35 img-27 img-28"
+    "img-19 img-19 img-23 img-23 img-34"
+    "img-3 img-33 img-23 img-23 img-32"
+    "img-22 img-29 img-29 img-36 img-36";
+}
+.image-gallery a {
+  width: 100%;
+  height: 25em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.image-gallery a i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1em;
+  position: relative;
+  z-index: 100;
+  padding: 0.5em 1em;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4em;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.image-gallery a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.image-gallery a:hover i,
+.image-gallery a:hover::before {
+  opacity: 1;
+}
+
+.img-1 {
+  grid-area: img-1;
+  background-image: url("./images/simmi/1.jpeg");
+}
+
+.img-2 {
+  grid-area: img-2;
+  background-image: url("./images/simmi/2.jpeg");
+}
+
+.img-3 {
+  grid-area: img-3;
+  background-image: url("./images/simmi/3.jpg");
+}
+
+.img-4 {
+  grid-area: img-4;
+  background-image: url("./images/simmi/4.jpeg");
+}
+.img-5 {
+  grid-area: img-5;
+  background-image: url("./images/simmi/5.jpeg");
+}
+.img-6 {
+  grid-area: img-6;
+  background-image: url("./images/simmi/6.jpeg");
+}
+.img-7 {
+  grid-area: img-7;
+  background-image: url("./images/simmi/7.jpeg");
+}
+.img-8 {
+  grid-area: img-8;
+  background-image: url("./images/simmi/8.jpeg");
+}
+.img-9 {
+  grid-area: img-9;
+  background-image: url("./images/simmi/9.jpeg");
+}
+.img-10 {
+  grid-area: img-10;
+  min-height: 50.5rem;
+  background-image: url("./images/simmi/10.jpeg");
+}
+
+.img-11 {
+  grid-area: img-11;
+  background-image: url("./images/simmi/11.jpeg");
+}
+
+.img-12 {
+  grid-area: img-12;
+  background-image: url("./images/simmi/12.jpeg");
+}
+
+.img-13 {
+  grid-area: img-13;
+  background-image: url("./images/simmi/13.jpeg");
+}
+.img-14 {
+  grid-area: img-14;
+  background-image: url("./images/simmi/14.jpeg");
+}
+
+.img-15 {
+  grid-area: img-15;
+  background-image: url("./images/simmi/15.jpeg");
+}
+
+.img-16 {
+  grid-area: img-16;
+  background-image: url("./images/simmi/16.jpeg");
+}
+
+.img-17 {
+  grid-area: img-17;
+  background-image: url("./images/simmi/17.jpeg");
+}
+
+.img-18 {
+  grid-area: img-18;
+  background-image: url("./images/simmi/18.jpeg");
+}
+
+.img-19 {
+  grid-area: img-19;
+  background-image: url("./images/simmi/19.jpeg");
+}
+
+.img-20 {
+  grid-area: img-20;
+  background-image: url("./images/simmi/20.jpeg");
+}
+
+.img-21 {
+  grid-area: img-21;
+  background-image: url("./images/simmi/21.jpeg");
+}
+
+.img-22 {
+  grid-area: img-22;
+  background-image: url("./images/simmi/22.jpeg");
+}
+
+.img-23 {
+  grid-area: img-23;
+  min-height: 50.5rem;
+  background-image: url("./images/simmi/23.jpeg");
+}
+
+.img-24 {
+  grid-area: img-24;
+  background-image: url("./images/simmi/24.jpeg");
+}
+
+.img-25 {
+  grid-area: img-25;
+  background-image: url("./images/simmi/25.jpeg");
+}
+
+.img-26 {
+  grid-area: img-26;
+  background-image: url("./images/simmi/26.jpeg");
+}
+
+.img-27 {
+  grid-area: img-27;
+  background-image: url("./images/simmi/27.jpeg");
+}
+
+.img-28 {
+  grid-area: img-28;
+  background-image: url("./images/simmi/28.jpeg");
+}
+
+.img-29 {
+  grid-area: img-29;
+  background-image: url("./images/simmi/29.jpeg");
+}
+
+.img-30 {
+  grid-area: img-30;
+  background-image: url("./images/simmi/30.jpeg");
+}
+
+.img-31 {
+  grid-area: img-31;
+  background-image: url("./images/simmi/31.jpeg");
+}
+
+.img-32 {
+  grid-area: img-32;
+  background-image: url("./images/simmi/32.jpeg");
+}
+
+.img-33 {
+  grid-area: img-33;
+  background-image: url("./images/simmi/33.jpeg");
+}
+
+.img-34 {
+  grid-area: img-34;
+  background-image: url("./images/simmi/34.jpeg");
+}
+.img-35 {
+  grid-area: img-35;
+  background-image: url("./images/simmi/35.png");
+}
+.img-36 {
+  grid-area: img-36;
+  background-image: url("./images/simmi/36.png");
+}
+/* .img-37 {
+  grid-area: img-37;
+  background-image: url("./images/simmi/37.png");
+} */
+
+@media screen and (max-width: 900px) {
+  .image-gallery {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "img-1 img-1 img-1 img-4 img-4"
+      "img-2 img-2 img-6 img-6 img-12"
+      "img-5 img-7 img-25 img-11 img-11"
+      "img-8 img-10 img-10 img-10 img-14"
+      "img-15 img-10 img-10 img-10 img-20"
+      "img-16 img-16 img-16 img-21 img-17"
+      "img-26 img-26 img-26 img-26 img-26"
+      "img-24 img-29 img-29 img-29 img-29"
+      "img-23 img-23 img-23 img-34 img-34"
+      "img-23 img-23 img-23 img-32 img-32"
+      "img-22 img-22 img-36 img-36 img-36"
+      "img-18 img-18 img-9 img-9 img-9"
+      "img-13 img-13 img-13 img-27 img-27"
+      "img-19 img-19 img-19 img-19 img-33"
+      "img-28 img-28 img-35 img-35 img-35"
+      "img-3 img-30 img-30 img-31 img-31";
+  }
+
+  .image-gallery a {
+    height: 20rem;
+  }
+
+  .img-10 {
+    min-height: 40.5rem;
+  }
+
+  .img-23 {
+    min-height: 40.5rem;
+  }
+
+  .image-gallery a i {
+    font-size: 0.75em;
+  }
+}
+
+/* @media screen and (max-width: 600px) {
+  .image-gallery {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "img-1 img-1 img-1 img-15 img-15"
+      "img-2 img-2 img-6 img-6 img-6"
+      "img-13 img-13 img-13 img-5 img-7"
+      "img-10 img-10 img-10 img-10 img-14"
+      "img-10 img-10 img-10 img-10 img-20"
+      "img-18 img-18 img-16 img-16 img-16"
+      "img-26 img-26 img-26 img-26 img-26"
+      "img-29 img-29 img-29 img-29 img-24"
+      "img-30 img-31 img-23 img-23 img-23"
+      "img-3 img-33 img-23 img-23 img-23"
+      "img-4 img-12 img-9 img-9 img-9"
+      "img-19 img-19 img-19 img-28 img-28"
+      "img-32 img-32 img-17 img-25 img-25"
+      "img-11 img-11 img-21 img-21 img-22"
+      "img-8 img-8 img-27 img-27 img-34";
+  }
+
+  .image-gallery a {
+    height: 18rem;
+  }
+
+  .img-10 {
+    min-height: 36.5rem;
+  }
+
+  .img-23 {
+    min-height: 36.5rem;
+  }
+} */
+
+@media screen and (max-width: 650px) {
+  .image-gallery a i {
+    font-size: 0.6em;
+  }
+}
+
+/* ********************** FEEDBACK ********************** */
+
+.main {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  text-align: center;
+  /* vertical-align: middle; */
+  background: #000;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  background-color: #111;
+  padding: 20px 30px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .post {
+  display: none;
+}
+
+.container .text {
+  font-size: 25px;
+  color: #666;
+  font-weight: 500;
+}
+
+.container .edit {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.container .edit:hover {
+  text-decoration: underline;
+}
+
+.container .star-widget input {
+  display: none;
+}
+
+.star-widget label {
+  font-size: 40px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+
+.star-widget label:hover {
+  cursor: pointer;
+}
+
+.star-widget input:not(:checked) ~ label:hover,
+.star-widget input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+  /* background-color: aqua; */
+}
+
+input:checked ~ label {
+  color: #fd4;
+}
+
+input#rate-5:checked ~ label {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+#rate-1:checked ~ form header:before {
+  content: "I just hate it 😠";
+}
+#rate-2:checked ~ form header:before {
+  content: "I don't like it 😏";
+}
+#rate-3:checked ~ form header:before {
+  content: "I don't know 😶";
+}
+#rate-4:checked ~ form header:before {
+  content: "This is good 😊";
+}
+#rate-5:checked ~ form header:before {
+  content: "I just loved it 😍";
+}
+
+.container form {
+  display: none;
+}
+
+input:checked ~ form {
+  display: block;
+}
+
+form header {
+  width: 100%;
+  font-size: 25px;
+  color: #fe7;
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+form .textarea {
+  height: 100px;
+  width: 300px;
+  overflow: hidden;
+}
+
+form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: 1px solid #333;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+
+form .btn {
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+form .btn button {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #999;
+  border: 1px solid #444;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+  background: #1b1b1b;
+}
